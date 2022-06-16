@@ -4009,6 +4009,7 @@ textarea.form-control-lg {
 .navbar-nav .show > .nav-link,
 .navbar-nav .nav-link.active {
   color: var(--bs-navbar-active-color);
+  text-decoration: underline;
 }
 .navbar-nav .dropdown-menu {
   position: static;

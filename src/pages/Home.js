@@ -10,7 +10,7 @@ export default function Home() {
 
     return (
         <>
-            <Header />
+            <Header transparent={true} />
             <Hero />
             <div className="container my-5 text-center text-white">
                 <div className="reel rounded-5">
