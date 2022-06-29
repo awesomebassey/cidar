@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 export default function Header({ transparent }) {
     const images = process.env.PUBLIC_URL + "/assets/images"
@@ -33,17 +34,24 @@ export default function Header({ transparent }) {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
+                            <li className="nav-item me-3">
                                 <NavLink className={`nav-link fw-bold ${!transparent && 'transparent'}`} to={'/projects'}>Projects</NavLink>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item me-4">
                                 <NavLink className={`nav-link fw-bold ${!transparent && 'transparent'}`} to={'/about'}>About Us</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className={`nav-link fw-bold ${!transparent && 'transparent'}`} to={'/start'}>Start a Project</NavLink>
-                            </li>
                         </ul>
-                        <Link className="btn btn-success ms-lg-3 nav-btn py-2 px-4" to={'/contact'}>Reach Us</Link>
+                        <motion.a
+                            className="btn btn-success ms-lg-3 nav-btn py-2 px-4"
+                            href={'mailto:contact@cidar.com'}
+                            whileHover={{
+                                scale: 1.1,
+                                boxShadow: "0px 0px 8px #20c997",
+                                transition: {type: 'spring', stiffness: 320}
+                            }}
+                        >
+                            Reach Us
+                        </motion.a>
                     </div>
                 </div>
             </nav>

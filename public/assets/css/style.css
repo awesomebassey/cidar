@@ -45,11 +45,12 @@ body {
     font-family: 'Gilroy Bold';
 }
 
-.hero h1 span {
+.hero h1 span.linear {
     background: linear-gradient(45deg, #3DE3CF, #BE82D3);
     background-clip: inherit;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: block;
 }
 
 .hero h3 {

@@ -1,9 +1,25 @@
+import { motion, useAnimation } from "framer-motion"
+import constants from "./utils/constants"
+import { useInView } from "react-intersection-observer"
+import { useEffect } from "react"
 
 export default function Testimonials() {
     const images = process.env.PUBLIC_URL + "/assets/images"
+    const controls = useAnimation()
+    const [ref, inView] = useInView()
+    useEffect(() => {
+        if (inView) {
+            controls.start("animate");
+        }
+    }, [controls, inView]);
     return (
         <>
-            <div className="container my-5 p-5 testimonials-section rounded-4">
+            <motion.div className="container my-5 p-5 testimonials-section rounded-4"
+                variants={constants.slideIn}
+                ref={ref}
+                initial="initial"
+                animate={controls}
+            >
                 <div className="px-5">
                     <h1 className="mt-5 pt-5">Testimonials</h1>
                     <small><u>What people say about Cidar</u></small>
@@ -78,7 +94,7 @@ export default function Testimonials() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }
